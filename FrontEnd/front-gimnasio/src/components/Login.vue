@@ -1,59 +1,78 @@
 <template>
-<!-- component -->
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<div class="bg-no-repeat bg-cover bg-center relative" style="background-image: url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80);"><div class="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
-  <div class="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
-      <div class="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
-        <div class="self-start hidden lg:flex flex-col  text-white">
-          <img src="" class="mb-3">
-          <h1 class="mb-3 font-bold text-5xl">Hi ? Welcome Back Aji </h1>
-          <p class="pr-3">Lorem ipsum is placeholder text commonly used in the graphic, print,
-            and publishing industries for previewing layouts and visual mockups</p>
+  <!-- component -->
+<!-- This is an example component -->
+ <div class="font-sans">
+            <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+                <div class="relative sm:max-w-sm w-full">
+                    <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+                    <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+                    <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                        <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
+                            Login
+                        </label>
+                        <form method="#" action="#" class="mt-10">
+                                           
+                            <div>
+                                <input type="email" placeholder="Correo electronico" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+                            </div>
+                
+                            <div class="mt-7">                
+                                <input type="password" placeholder="Contraseña" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">                           
+                            </div>
+
+                            <div class="mt-7 flex">
+                                <label for="remember_me" class="inline-flex items-center w-full cursor-pointer">
+                                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                                    <span class="ml-2 text-sm text-gray-600">
+                                        Recuerdame
+                                    </span>
+                                </label>
+                
+                               <div class="w-full text-right">     
+                                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="#">
+                                        ¿Olvidó su contraseña?
+                                    </a>                                  
+                               </div>
+                            </div>
+                
+                            <div class="mt-7">
+                                <button class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    Login
+                                </button>
+                            </div>
+                
+                            <!-- <div class="flex mt-7 items-center text-center">
+                                <hr class="border-gray-300 border-1 w-full rounded-md">
+                                <label class="block font-medium text-sm text-gray-600 w-full">
+                                    Accede con
+                                </label>
+                                <hr class="border-gray-300 border-1 w-full rounded-md">
+                            </div> -->
+                
+                            <!-- <div class="flex mt-7 justify-center w-full">
+                                <button class="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    
+                                    Facebook
+                                </button>
+                
+                                <button class="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    
+                                    Google
+                                </button>
+                            </div> -->
+                
+                             <div class="mt-7">
+                                <div class="flex justify-center items-center">
+                                    <label class="mr-2" >¿Eres nuevo?</label>
+                                    <a href='/register' class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                        Crea una cuenta
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-      </div>
-      <div class="flex justify-center self-center  z-10">
-        <div class="p-12 bg-white mx-auto rounded-2xl w-100 ">
-            <div class="mb-4">
-              <h3 class="font-semibold text-2xl text-gray-800">Sign In </h3>
-              <p class="text-gray-500">Please sign in to your account.</p>
-            </div>
-            <div class="space-y-5">
-                        <div class="space-y-2">
-                              <label class="text-sm font-medium text-gray-700 tracking-wide">Email</label>
-              <input class=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="mail@gmail.com">
-              </div>
-                          <div class="space-y-2">
-              <label class="mb-5 text-sm font-medium text-gray-700 tracking-wide">
-                Password
-              </label>
-              <input class="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="Enter your password">
-            </div>
-              <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded">
-                <label for="remember_me" class="ml-2 block text-sm text-gray-800">
-                  Remember me
-                </label>
-              </div>
-              <div class="text-sm">
-                <a href="#" class="text-green-400 hover:text-green-500">
-                  Forgot your password?
-                </a>
-              </div>
-            </div>
-            <div>
-              <button type="submit" class="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                Sign in
-              </button>
-            </div>
-            </div>
-            <div class="pt-5 text-center text-gray-400 text-xs">
-              <span>
-                Copyright © 2021-2022
-                <a href="https://codepen.io/uidesignhub" rel="" target="_blank" title="Ajimon" class="text-green hover:text-green-500 ">AJI</a></span>
-            </div>
-        </div>
-      </div>
-  </div>
-</div>
 </template>
