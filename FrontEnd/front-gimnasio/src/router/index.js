@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../components/Login.vue'
 import RegisterUserView from '../components/RegisterUser.vue'
+import RegisteUserView from '../components/RegisterUsers.vue'
 // import dashboardView from '@views/dashboard.vue'
 
 const router = createRouter({
@@ -17,17 +18,23 @@ const router = createRouter({
       name: 'register',
       component: RegisterUserView
     },
+    {
+      path: '/registe',
+      name: 'registe',
+      component: RegisteUserView
+    }
+    //,
     
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/dynamic',
-      name: 'dynamic',
-      component: Dynamic
-    },
+    // {
+    //   path: '/dashboard',
+    //   name: 'dashboard',
+    //   component: Dashboard
+    // },
+    // {
+    //   path: '/dynamic',
+    //   name: 'dynamic',
+    //   component: Dynamic
+    // },
 
   ]
 })
