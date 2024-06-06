@@ -1,6 +1,6 @@
 <template>
     <div class=" py-10 flex-col bg-gray-100 items-center sm:justify-center min-h-screen ">
-        <div class="mt-8 mx-auto  max-w-4xl  ">
+        <div class="mt-8 mx-auto  max-w-4xl">
             <div class="bg-white  py-8 px-4 shadow-lg rounded-xl  ">
                 <form>
                     <h1 class="text-2xl xl:text-2xl text-center font-bold">Registrate</h1>
@@ -77,8 +77,7 @@
                         </select>
                     </div>
                 </div>
-                    <hr>
-                    </hr>
+                    
                 <h1 class="text-2xl xl:text-2xl text-center font-bold mt-8">Datos de acceso</h1>
                 <br>
                 <div class="grid gap-12 mb-12 sm:grid-cols-3">
@@ -86,20 +85,20 @@
                     <label class="px-1 block text-sm uppercase text-gray-500 mb-2 font-extrabold">Usuario</label>
                     <input type="text"
                         class="font-bold hover:bg-blue-100 focus:bg-blue-100 rounded-sm shadow-sm  focus:ring-0 w-full px-3 py-2 mb-5 border border-gray-300 rounded-xl placeholder-gray-400"
-                        placeholder="Genera un usuario">
+                        placeholder="Genera un nombre de     usuario">
                 </div>
                 <div>
                     <label class="px-1 block text-sm uppercase text-gray-500 mb-2 font-extrabold">Contraseña</label>
                     <input type="password"
                         class="font-bold hover:bg-blue-100 focus:bg-blue-100 rounded-sm shadow-sm  focus:ring-0 w-full px-3 py-2 mb-5 border border-gray-300 rounded-xl placeholder-gray-400"
-                        placeholder="Ingresar contraseña">
+                        placeholder="Crear contraseña">
                 </div>
                 <div>
                     <label class="px-1 block text-sm uppercase text-gray-500 mb-2 font-extrabold">Repetir
                         contraseña</label>
                     <input type="password"
                         class="font-bold hover:bg-blue-100 focus:bg-blue-100 rounded-sm shadow-sm  focus:ring-0 w-full px-3 py-2 mb-5 border border-gray-300 rounded-xl placeholder-gray-400"
-                        placeholder="Ingresar contraseña">
+                        placeholder="Confirma tu contraseña">
                 </div>
             </div>
 
