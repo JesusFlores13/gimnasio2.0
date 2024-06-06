@@ -27,21 +27,13 @@ const router = createRouter({
     {
       path: '/menu',
       name: 'menu',
-      component: MenuView
-    }
-    //,
-    
-    // {
-    //   path: '/dashboard',
-    //   name: 'dashboard',
-    //   component: Dashboard
-    // },
-    // {
-    //   path: '/dynamic',
-    //   name: 'dynamic',
-    //   component: Dynamic
-    // },
+      component: MenuView,
+      children:[
+        {path:'/personas', name:'personas', component: RegisteUserView}
 
+      ]
+    }
+  
   ]
 })
 
