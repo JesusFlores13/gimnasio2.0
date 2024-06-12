@@ -18,7 +18,7 @@
                         <input type="text" class="font-bold hover:bg-blue-100 focus:bg-blue-100 rounded-sm shadow-sm  focus:ring-0 w-full px-3 py-2 mb-5 border border-gray-300 rounded-md placeholder-gray-400" placeholder="Ingresar contraseña">
                     </div>
                     
-                    <input class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3 cursor-pointer transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105 rounded-xl" type="submit" value="Crear Cuenta">
+                    <input class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3 cursor-pointer transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105 rounded-xl" type="submit" value="Iniciar sesion">
                     <div class="mt-7">
                         <div class="flex justify-center items-center">
                             <label class="mr-2" >¿No tienes una cuenta?</label>
