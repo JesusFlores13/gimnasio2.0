@@ -8,6 +8,7 @@ import InstalacionesView from "../components/Instalaciones.vue"
 import EquipamientoView from "../components/Equipamiento.vue"
 import MantenimientoView from "../components/Mantenimiento.vue"
 import PrestamoView from "../components/Prestamo.vue"
+// import FooterView from "../components/footer.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +34,7 @@ const router = createRouter({
         { path: '/instalaciones', name: 'instalaciones', component: InstalacionesView },
         { path: '/equipamiento', name: 'equipamiento', component: EquipamientoView },
         { path: '/mantenimiento', name: 'mantenimiento', component: MantenimientoView },
-        { path: '/prestamo', name: 'prestamo', component: PrestamoView },
+        { path: '/prestamo', name: 'prestamo', component: PrestamoView }
 
       ]
     }
