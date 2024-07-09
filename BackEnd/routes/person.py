@@ -1,50 +1,52 @@
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
-from datetime import datetime
+from fastapi import APIRouter, HTTPException, Depends
+from sqlalchemy.orm import Session
+from cryptography.fernet import Fernet
+import crud.persons, Config.db, schemas.persons, models.persons
 from typing import List
 
+key=Fernet.generate_key()
+f = Fernet(key)
+
 person = APIRouter()
-persons: List['model_person' ] = []
 
-# person model
-class model_person(BaseModel):
-    id:int
-    Nombre:str
-    primer_apellido: str
-    segundo_apellido: str
-    titulo_cortecia: str
-    fecha_nacimiento: str
-    genero: str
-    tipo_sangre: str
+models.persons.Base.metadata.create_all(bind=Config.db.engine)
 
+def get_db():
+    db = Config.db.SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
+@person.get("/persons/", response_model=List[schemas.persons.Person], tags=["Personas"])
+def read_persons(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    db_persons= crud.persons.get_persons(db=db, skip=skip, limit=limit)
+    return db_persons
 
-@person.get("/")
-def bienvenida():
-    return "Bienvenido al sistema de apis"
+@person.post("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"])
+def read_user(id: int, db: Session = Depends(get_db)):
+    db_person= crud.persons.get_person(db=db, id=id)
+    if db_person is None:
+        raise HTTPException(status_code=404, detail="Persona no encontrada")
+    return db_person
 
-@person.get("/person",tags=['Personas'])
-def get_usuarios():
-    return persons
+@person.post("/person/", response_model=schemas.persons.Person, tags=["Personas"])
+def create_person(person: schemas.persons.PersonCreate, db: Session = Depends(get_db)):
+    db_person = crud.persons.get_person_by_nombre(db, person=person.Nombre)
+    if db_person:
+        raise HTTPException(status_code=400, detail="Usuario existente intenta nuevamente")
+    return crud.persons.create_person(db=db, person=person)
 
+@person.put("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"])
+def update_person(id: int, person: schemas.persons.PersonUpdate, db: Session = Depends(get_db)):
+    db_person = crud.persons.update_person(db=db, id=id, person=person)
+    if db_person is None:
+        raise HTTPException(status_code=404, detail="Persona no existe, no actualizado")
+    return db_person
 
-@person.post("/person",tags=['Personas'])
-def save_personas(insert_person: model_person):
-    persons.append(insert_person)
-    return "Datos guardados"
-
-@person.put("/person/{person_id}",tags=['Personas'])
-def update_person(person_id: str, updated_person: model_person):
-    for index, person in enumerate(persons):
-        if person.id == person_id:
-            persons[index] = updated_person
-            return {"message": "Usuario actualizado"}
-    raise HTTPException(status_code=404, detail="Usuario no encontrado")
-
-@person.delete("/person/{person_id}",tags=['Personas'])
-def delete_person(person_id: str):
-    for index, person in enumerate(persons):
-        if person.id == person_id:
-            del persons[index]
-            return {"message": "Persona eliminada"}
-    raise HTTPException(status_code=404, detail="Usuario no encontrado")
+@person.delete("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"])
+def delete_person(id: int, db: Session = Depends(get_db)):
+    db_person = crud.persons.delete_person(db=db, id=id)
+    if db_person is None:
+        raise HTTPException(status_code=404, detail="Persona no existe, no se pudo eliminar")
+    return db_person
