@@ -216,6 +216,20 @@
                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Prestamo</a>
               </RouterLink>
             </li>
+            <li>
+              <RouterLink to="/adeudo">
+
+                <a href="#"
+                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Adeudo</a>
+              </RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/sucursales">
+
+                <a href="#"
+                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Sucursales</a>
+              </RouterLink>
+            </li>
           </ul>
         </li>
         <li>
@@ -316,7 +330,7 @@
   <FooterView></FooterView>
 </div>
 </template>
-  
+<!--   
 <script>
 import FooterView from './FooterView.vue'
 export default {
@@ -325,4 +339,4 @@ export default {
     }, components: { FooterView }
 
 }
-</script>
+</script> -->
