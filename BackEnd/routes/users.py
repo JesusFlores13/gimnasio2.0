@@ -1,17 +1,17 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-import crud.users, config.db, schemas.users, models.users
+import crud.users, Config.db, schemas.users, models.users
 from typing import List
 from jwt_config import solicita_token
 from portadortoken import Portador
 
 users= APIRouter()
 
-models.users.Base.metadata.create_all(bind=config.db.engine)
+models.users.Base.metadata.create_all(bind=Config.db.engine)
 
 def  get_db():
-    db=config.db.SessionLocal()
+    db=Config.db.SessionLocal()
     try:
         yield db
     finally:

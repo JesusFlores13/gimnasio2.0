@@ -1,15 +1,15 @@
 from fastapi import APIRouter,HTTPException,Depends,Request
 from sqlalchemy.orm import Session
 from portadortoken import Portador
-import crud.roles,config.db,schemas.roles,models.roles
+import crud.roles,Config.db,schemas.roles,models.roles
 from typing import List
 
 roles = APIRouter()
 
-models.roles.Base.metadata.create_all(bind=config.db.engine)
+models.roles.Base.metadata.create_all(bind=Config.db.engine)
 
 def get_db():
-    db = config.db.SessionLocal()
+    db = Config.db.SessionLocal()
     try:
         yield db
     finally:
