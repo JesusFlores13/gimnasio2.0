@@ -32,10 +32,3 @@ class Person(PersonBase):
     class Config:
         orm_mode = True
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Cambia esto a la URL de tu frontend
-    allow_credentials=True,
-    allow_methods=["*"],  # Permite todos los métodos HTTP
-    allow_headers=["*"],  # Permite todos los encabezados
-)
