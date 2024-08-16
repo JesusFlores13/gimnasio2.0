@@ -9,6 +9,7 @@ import EquipamientoView from "../components/Equipamiento.vue"
 import MantenimientoView from "../components/Mantenimiento.vue"
 import PrestamoView from "../components/Prestamo.vue"
 import SucursalesView from "../components/Sucursales.vue"
+import AdeudoView from "../components/Adeudo.vue"
 // import FooterView from "../components/footer.vue"
 
 const router = createRouter({
@@ -36,7 +37,8 @@ const router = createRouter({
         { path: '/equipamiento', name: 'equipamiento', component: EquipamientoView },
         { path: '/mantenimiento', name: 'mantenimiento', component: MantenimientoView },
          { path: '/sucursales', name: 'sucursales', component: SucursalesView },
-        { path: '/prestamo', name: 'prestamo', component: PrestamoView }
+        { path: '/prestamo', name: 'prestamo', component: PrestamoView },
+        { path: '/adeudo', name: 'adeudo', component: AdeudoView }
 
       ]
     }

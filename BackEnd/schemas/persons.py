@@ -2,7 +2,7 @@ from typing import List, Union
 from pydantic  import BaseModel
 from datetime import datetime, date
 from sqlalchemy.dialects.mysql import BIT
-
+from fastapi.middleware.cors import CORSMiddleware
 from models.persons import MyGenero, MySangre
 
 class PersonBase(BaseModel):
@@ -32,3 +32,10 @@ class Person(PersonBase):
     class Config:
         orm_mode = True
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Cambia esto a la URL de tu frontend
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos HTTP
+    allow_headers=["*"],  # Permite todos los encabezados
+)

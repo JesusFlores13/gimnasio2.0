@@ -1,3 +1,35 @@
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      usuario: '',
+      contraseña: '',
+    };
+  },
+  methods: {
+    async iniciarSesion() {
+      try {
+        const response = await axios.post('http://localhost:8000/api/login', {
+          usuario: this.usuario,
+          contraseña: this.contraseña,
+        });
+        
+        // Si el login es exitoso
+        if (response.status === 200) {
+          // Puedes redirigir al usuario o guardar el token
+          console.log('Login exitoso:', response.data);
+        }
+      } catch (error) {
+        // Manejar el error (credenciales incorrectas, servidor caído, etc.)
+        console.error('Error en el login:', error.response ? error.response.data : error.message);
+      }
+    },
+  },
+};
+</script>
+
 <template>
     <div class="py-10 flex-col bg-gray-100 items-center sm:justify-center min-h-screen">
         <div class="mt-8 mx-auto  max-w-lg ">
@@ -22,7 +54,7 @@
                     <div class="mt-7">
                         <div class="flex justify-center items-center">
                             <label class="mr-2" >¿No tienes una cuenta?</label>
-                            <a href='/registe' class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                            <a href='/register' class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                                 Crear cuenta
                             </a>
                         </div>
