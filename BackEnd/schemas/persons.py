@@ -2,7 +2,6 @@ from typing import List, Union
 from pydantic  import BaseModel
 from datetime import datetime, date
 from sqlalchemy.dialects.mysql import BIT
-from fastapi.middleware.cors import CORSMiddleware
 from models.persons import MyGenero, MySangre
 
 class PersonBase(BaseModel):
